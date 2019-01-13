@@ -1,6 +1,18 @@
 
 window.onload = function(){
 
+	genCard();
+
+	document.onkeypress = function(e){
+        e = e || window.event;
+		let key_pressed = e.keyCode;
+		if(key_pressed == 32){
+			genCard();
+		}
+	}
+}
+
+function genCard(){
 	let topic = pickTopic();
 	let content = pickContent(topic);
 	console.log(topic.name);
@@ -11,7 +23,6 @@ window.onload = function(){
 	let div = document.getElementById('c');
 	div.innerHTML = content.html_content;
 }
-
 let topic_names = ["Prerequisite Knowledge", "Algorithmic complexity / Big-O / Asymptotic analysis", "Data Structures", "More Knowledge", "Trees", "Sorting", "Graphs", "Advanced Alg Types", "Design Patterns", "Maths and Theory", "Low Level, How things work",
 "Papers", "Testing", "Strings", "System Design"];
 let topics = {"Prerequisite Knowledge": {
